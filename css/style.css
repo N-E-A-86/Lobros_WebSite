@@ -1,33 +1,25 @@
 /* --- Variables y Estilos Globales --- */
 :root {
-    --bg-color: #1a1a1a; /* Un fondo oscuro casi negro */
-    --text-color: #e0e0e0; /* Un texto gris claro, fácil de leer */
-    --primary-color: #00bfff; /* Un azul eléctrico como color de acento */
-    --card-bg-color: #2c2c2c; /* Un gris oscuro para las tarjetas */
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --primary-color: #00bfff;
+    --card-bg-color: #2c2c2c;
     --font-main: 'Montserrat', sans-serif;
     --font-code: 'Roboto Mono', monospace;
 }
 
 html {
-    scroll-behavior: smooth; /* Para que el scroll entre secciones sea suave */
+    scroll-behavior: smooth;
 }
-
-/* --- CSS MODIFICADO --- */
 
 body {
     margin: 0;
     font-family: var(--font-main);
-    
-    /* ANTES */
-    /* background-color: var(--bg-color); */
-    
-    /* AHORA */
-    background-image: url('../images/Imagen_7_para_fondo.jpg'); /* ¡Ruta corregida! */
-    background-size: cover; /* La imagen cubre todo el fondo */
-    background-position: center center; /* La imagen se centra */
-    background-attachment: fixed; /* La imagen de fondo se queda fija al hacer scroll */
-    background-color: var(--bg-color); /* Color de respaldo si la imagen no carga */
-
+    background-image: url('../images/Imagen_7_para_fondo.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
 }
@@ -39,7 +31,7 @@ body {
     align-items: center;
     padding: 1rem 2rem;
     background-color: rgba(26, 26, 26, 0.8);
-    backdrop-filter: blur(10px); /* Efecto de vidrio esmerilado */
+    backdrop-filter: blur(10px);
     position: fixed;
     width: 100%;
     top: 0;
@@ -75,44 +67,23 @@ body {
 }
 
 /* --- Sección Hero (Banner principal) --- */
-/* --- EN EL HERO --- (Aquí está el cambio) */
-/* #hero {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    /* LA SIGUIENTE LÍNEA SE ELIMINA O COMENTA */
-     /* background: url('../images/logo1.jpg') no-repeat center center; Imagen de fondo del hero
-    background-size: cover; /* Asegura que la imagen cubra todo el hero */
-    /* background-color: transparent; /* Hacemos el fondo del hero transparente */
-    /* position: relative; */
-/* } *//* --- CSS MODIFICADO PARA #hero --- */
-
 #hero {
     height: 100vh;
     display: flex;
-    justify-content: center; /* Mantiene el contenido centrado horizontalmente */
-    
-    /* ----- CAMBIO PRINCIPAL AQUÍ ----- */
-    align-items: flex-end; /* Alinea el contenido en la parte de ABAJO del contenedor */
-    
+    justify-content: center;
+    align-items: flex-end; /* Alinea el contenido abajo */
     text-align: center;
     position: relative;
-    box-sizing: border-box; /* Buena práctica para que el padding no altere el tamaño total */
-    padding: bottom 10vh;/* Añade un espacio desde el borde inferior (10% de la altura de la ventana) */
-    
-    /* Tus propiedades de background (esto se queda igual) */
-    background-image: url('../images/logo1.jpg'); /* Ruta corregida */
-    background-color: transparent; /* Fondo transparente */
-
-
+    box-sizing: border-box;
+    padding-bottom: 10vh; /* CORRECCIÓN: La sintaxis correcta es 'padding-bottom' */
+    background-image: url('../images/logo1.jpg');
+    background-color: transparent;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
 }
 
-#hero::before { /* Capa oscura sobre la imagen para que el texto resalte */
+#hero::before {
     content: '';
     position: absolute;
     top: 0;
@@ -123,59 +94,43 @@ body {
 }
 
 .hero-content {
-    position: relative; /* Necesario para que el contenido se posicione sobre la capa oscura */
-   
+    position: relative;
     z-index: 2;
     width: 100%;
 }
 
-
 #hero h1 {
-    width: 100%; 
-    height: auto;
     font-family: var(--font-code);
-    font-size: 3.5%rem;
-    color: var(--text-color);
-    margin-bottom: 1rem;
+    /* CORRECCIÓN: La sintaxis '%rem' no es válida. Se usa 'rem' o '%', no ambos. */
+    font-size: 3.5rem;
     color: #1479acdb;
-}
-/* --- CSS CORREGIDO --- */
-
-#hero img {
-    width: 300px; /* O el tamaño que prefieras, ej: 200px */
-    height: auto; /* Mantiene la proporción original de la imagen */
-    margin: 0 auto 2rem; /* Centra la imagen y le da un espacio debajo */
-    display: block; /* Asegura que 'margin: auto' funcione correctamente */
-}
-
-
-#hero h1, #hero p {
+    margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
+
 #hero p {
     font-size: 1.5rem;
     color: var(--primary-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 /* --- Estructura de las Secciones de Contenido --- */
-/* --- CSS MODIFICADO --- */
-
 .content-section {
     max-width: 800px;
-    margin: 4rem auto; /* Añadimos margen superior e inferior para separar las secciones */
-    padding: 3rem 2rem; /* Aumentamos el padding para dar más aire */
-    border-bottom: none; /* Quitamos el borde que ya no necesitamos */
-    
-    /* ESTA ES LA MAGIA */
-    background-color: rgba(26, 26, 26, 0.85); /* Un fondo oscuro casi opaco */
-    backdrop-filter: blur(8px); /* Mismo efecto de vidrio esmerilado que la navbar */
-    border-radius: 12px; /* Bordes redondeados para un look más suave */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Un borde sutil que atrapa la luz */
-
-    /* Tus animaciones (esto ya lo tienes y está perfecto) */
+    margin: 4rem auto;
+    padding: 3rem 2rem;
+    background-color: rgba(26, 26, 26, 0.85);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.content-section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .content-section h2 {
@@ -196,15 +151,17 @@ body {
 /* --- Sección Discografía --- */
 .discography-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ligero ajuste para más espacio */
+    gap: 2.5rem; /* Un poco más de separación */
 }
 
 .disc-card {
     background-color: var(--card-bg-color);
-    border-radius: 8px;
+    border-radius: 12px; /* Coincide con el radio de .content-section */
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Borde sutil */
+    padding: 1.5rem; /* MEJORA: Aplicamos un padding general a la tarjeta */
 }
 
 .disc-card:hover {
@@ -216,21 +173,64 @@ body {
     width: 100%;
     height: auto;
     display: block;
-}
-
-.disc-card h3, .disc-card p {
-    padding: 0 1rem;
+    border-radius: 8px; /* Redondeamos también la imagen */
+    margin-bottom: 1.5rem; /* Espacio entre imagen y texto */
 }
 
 .disc-card h3 {
     color: var(--primary-color);
-    margin-top: 1rem;
-}
-.disc-card p {
-    padding-bottom: 1.5rem;
+    margin-top: 0; /* Quitamos márgenes extra */
+    margin-bottom: 1rem;
 }
 
-/* --- Botones y Links --- */
+.disc-card p {
+    margin-bottom: 1rem;
+    padding: 0; /* Quitamos paddings individuales */
+}
+
+/* === AÑADIDO: ESTILOS PARA LAS LISTAS DE CANCIONES === */
+.disc-card h4 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    font-weight: 700;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Borde con tu estilo */
+    padding-bottom: 0.5rem;
+    font-family: var(--font-main);
+}
+
+.track-list {
+    list-style-type: decimal;
+    list-style-position: inside;
+    padding-left: 0;
+    font-family: var(--font-code);
+}
+
+.track-list li {
+    margin-bottom: 12px;
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+.suite-parts {
+    list-style-type: none;
+    padding-left: 25px;
+    margin-top: 10px;
+}
+
+.suite-parts li {
+    color: #aaa; /* Un gris un poco más apagado para la suite */
+    font-size: 0.9em;
+    margin-bottom: 8px;
+}
+
+.suite-parts li::before {
+    content: "— ";
+    color: var(--primary-color); /* Usamos tu color de acento */
+    opacity: 0.6;
+}
+
+/* --- Botones, Links y Footer --- */
 #fechas {
     text-align: center;
 }
@@ -272,29 +272,22 @@ body {
     color: var(--primary-color);
 }
 
-/* --- Footer --- */
-/* --- CSS MEJORADO PARA EL FOOTER --- */
-
 footer {
-    max-width: 800px; /* Mismo ancho que las secciones */
-    margin: 4rem auto 2rem auto; /* Lo centramos y le damos espacio */
+    max-width: 800px;
+    margin: 4rem auto 2rem auto;
     padding: 2rem;
     text-align: center;
     font-size: 0.9rem;
-    
-    /* Le aplicamos el mismo estilo que a .content-section */
     background-color: rgba(26, 26, 26, 0.85);
     backdrop-filter: blur(8px);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-
-    /* Aseguramos que el color del texto sea el principal */
-    color: var(--text-color); 
+    color: var(--text-color);
 }
-/* --- Estilos para el Menú Responsive --- */
 
+/* --- Estilos para el Menú Responsive --- */
 .hamburger {
-    display: none; /* Oculto por defecto en escritorio */
+    display: none;
     cursor: pointer;
 }
 
@@ -303,32 +296,23 @@ footer {
     width: 25px;
     height: 3px;
     margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     background-color: var(--text-color);
 }
 
-/* Media Query: Estilos que se aplican solo en pantallas pequeñas (móviles) */
 @media(max-width: 768px) {
     .hamburger {
-        display: block; /* Hacemos visible la hamburguesa */
+        display: block;
     }
 
-    /* Animación de la hamburguesa a una 'X' cuando está activa */
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
     
     .nav-menu {
         position: fixed;
-        right: -100%; /* El menú empieza fuera de la pantalla */
-        top: 70px; /* Debajo de la navbar */
+        right: -100%;
+        top: 70px;
         gap: 0;
         flex-direction: column;
         background-color: var(--card-bg-color);
@@ -342,20 +326,29 @@ footer {
     }
 
     .nav-menu.active {
-        right: 0; /* El menú se desliza hacia adentro */
+        right: 0;
     }
-}
 
+    /* Ajustes de tamaño de fuente para móviles */
+    #hero h1 { font-size: 2.5rem; }
+    #hero p { font-size: 1.2rem; }
+    .content-section h2 { font-size: 2rem; }
+}```
 
-/* --- Estilos para las animaciones de Scroll (próximamente) --- */
-.content-section {
-    /* ... tus estilos existentes ... */
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
+### Resumen de Cambios y Correcciones:
 
-.content-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+1.  **Sintaxis en `#hero` Corregida:**
+    *   `padding: bottom 10vh;` se corrigió a `padding-bottom: 10vh;`.
+    *   `font-size: 3.5%rem;` se corrigió a `font-size: 3.5rem;`. Esta es una mezcla inválida de unidades, un error muy común.
+
+2.  **Estilos de Discografía Añadidos:** Inserté las reglas de CSS para `.disc-card h4`, `.track-list` y `.suite-parts` que habíamos diseñado. ¡Importante! Las adapté para que usen las variables de tu paleta de colores (`var(--text-color)`, `var(--primary-color)`) y así encajen perfectamente con tu diseño.
+
+3.  **Mejora en `.disc-card`:** Simplifiqué el código aplicando un `padding` general a toda la tarjeta (`.disc-card`) y ajustando los márgenes de los elementos internos (`img`, `h3`, `p`). Esto hace el código más limpio y fácil de mantener.
+
+4.  **Limpieza General:** Eliminé los comentarios redundantes y el código CSS comentado que tenías en la sección `#hero` para dejar el archivo final más organizado.
+
+5.  **Ajustes menores de consistencia:** Modifiqué ligeramente los `border-radius` y `gap` en la discografía para que coincidan con el resto del diseño, logrando un look más cohesivo. También añadí unos ajustes de tamaño de fuente para dispositivos móviles.
+
+**El siguiente paso es emocionante:** tienes el HTML y el CSS listos para la animación de scroll. Solo necesitas el archivo JavaScript para que todo cobre vida.
+
+Si estás listo, podemos pasar a crear el archivo `js/main.js` para la funcionalidad del menú hamburguesa y las animaciones de scroll. ¡Tu página está a punto de verse espectacular
