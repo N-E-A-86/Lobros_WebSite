@@ -120,6 +120,7 @@ body {
     margin: 4rem auto;
     padding: 3rem 2rem;
     background-color: rgba(26, 26, 26, 0.85);
+    
     backdrop-filter: blur(8px);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -333,20 +334,21 @@ footer {
     #hero h1 { font-size: 2.5rem; }
     #hero p { font-size: 1.2rem; }
     .content-section h2 { font-size: 2rem; }
-    /*### Resumen de Cambios y Correcciones:
+} 
+.preview-img {
+  width: 150px;   /* tamaño fijo */
+  height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px; /* espacio superior */
+    border-radius: 10px; /* bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* sombra */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* transición suave */
+opacity: 0.8; /* ligeramente transparente */
+    cursor: pointer; /* cambia el cursor al pasar por encima */
 
-1.  **Sintaxis en `#hero` Corregida:**
-    *   `padding: bottom 10vh;` se corrigió a `padding-bottom: 10vh;`.
-    *   `font-size: 3.5%rem;` se corrigió a `font-size: 3.5rem;`. Esta es una mezcla inválida de unidades, un error muy común.
-
-2.  **Estilos de Discografía Añadidos:** Inserté las reglas de CSS para `.disc-card h4`, `.track-list` y `.suite-parts` que habíamos diseñado. ¡Importante! Las adapté para que usen las variables de tu paleta de colores (`var(--text-color)`, `var(--primary-color)`) y así encajen perfectamente con tu diseño.
-
-3.  **Mejora en `.disc-card`:** Simplifiqué el código aplicando un `padding` general a toda la tarjeta (`.disc-card`) y ajustando los márgenes de los elementos internos (`img`, `h3`, `p`). Esto hace el código más limpio y fácil de mantener.
-
-4.  **Limpieza General:** Eliminé los comentarios redundantes y el código CSS comentado que tenías en la sección `#hero` para dejar el archivo final más organizado.
-
-5.  **Ajustes menores de consistencia:** Modifiqué ligeramente los `border-radius` y `gap` en la discografía para que coincidan con el resto del diseño, logrando un look más cohesivo. También añadí unos ajustes de tamaño de fuente para dispositivos móviles.
-
-**El siguiente paso es emocionante:** tienes el HTML y el CSS listos para la animación de scroll. Solo necesitas el archivo JavaScript para que todo cobre vida.
-
-Si estás listo, podemos pasar a crear el archivo `js/main.js` para la funcionalidad del menú hamburguesa y las animaciones de scroll. ¡Tu página está a punto de verse espectacular
+}
+.preview-img:hover {
+    transform: scale(1.05); /* zoom al pasar el cursor */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* sombra más intensa */
+}
