@@ -333,9 +333,7 @@ footer {
     #hero h1 { font-size: 2.5rem; }
     #hero p { font-size: 1.2rem; }
     .content-section h2 { font-size: 2rem; }
-}```
-
-### Resumen de Cambios y Correcciones:
+    /*### Resumen de Cambios y Correcciones:
 
 1.  **Sintaxis en `#hero` Corregida:**
     *   `padding: bottom 10vh;` se corrigió a `padding-bottom: 10vh;`.
